@@ -15,7 +15,8 @@ import java.util.Random;
 import java.util.Set;
 
 /**
- * Created by dasu on 2017/4/11.
+ * 数据库名 是靠 构造方法 创建的
+ * 表 是靠 onCreate 创建的
  */
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
