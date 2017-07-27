@@ -19,7 +19,7 @@ import java.util.Set;
  */
 public class MyDatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String TAG = MyDatabaseHelper.class.getSimpleName();
+    private static final String TAG = "chris";
 
     private static final String TEMP_SUFFIX = "_temp_";
 
@@ -140,7 +140,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        LogUtils.e(TAG, "onCreate()...");
+        LogUtils.e(TAG, "onCreate()...重新安装不升级版本号也会执行，如果改了db的名字，旧的db文件是没有被删除的");
         Collection<BaseDbTable> tables = DatabaseManager.mAllTables.values();
         Iterator<BaseDbTable> iterator = tables.iterator();
         try {

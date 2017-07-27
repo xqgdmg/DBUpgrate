@@ -9,8 +9,8 @@ import com.example.qhsj.dbupgrate.db.utils.BaseDbTable;
  *
  * 发布过干货文章的日期
  */
-public class PublishDateTable extends BaseDbTable {
-    public static final String TABLE_NAME = "publish_date_table";
+public class Table2 extends BaseDbTable {
+    public static final String TABLE_NAME = "table2";
 
     @Override
     public String getName() {
@@ -22,11 +22,11 @@ public class PublishDateTable extends BaseDbTable {
         db.execSQL(SQL_CREATE_TABLE);
     }
 
-    private static PublishDateTable sInstance = new PublishDateTable();
+    private static Table2 sInstance = new Table2();
 
-    private PublishDateTable() {}
+    private Table2() {}
 
-    public synchronized static PublishDateTable getInstance() {
+    public synchronized static Table2 getInstance() {
         return sInstance;
     }
 
@@ -36,7 +36,7 @@ public class PublishDateTable extends BaseDbTable {
     private static final String SQL_CREATE_TABLE =
             "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ("
                     + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    + DATE + " TEXT UNIQUE, "
-                    + ");";
+                    + DATE + " TEXT UNIQUE "
+                    + ")";
 
 }

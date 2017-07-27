@@ -4,7 +4,7 @@ import android.content.UriMatcher;
 import android.net.Uri;
 
 import com.example.qhsj.dbupgrate.db.table.Table1;
-import com.example.qhsj.dbupgrate.db.table.PublishDateTable;
+import com.example.qhsj.dbupgrate.db.table.Table2;
 
 import java.util.LinkedHashMap;
 
@@ -17,7 +17,7 @@ import java.util.LinkedHashMap;
 
 public class DatabaseManager {
 
-    static final String DB_NAME = "ganhuo.db";
+    static final String DB_NAME = "chris.db";
 
     static final int DB_VERSION = 1;
 
@@ -33,7 +33,7 @@ public class DatabaseManager {
 
     static {
         mAllTables.put(Table1.getInstance().getName(), Table1.getInstance());
-        mAllTables.put(PublishDateTable.getInstance().getName(), PublishDateTable.getInstance());
+        mAllTables.put(Table2.getInstance().getName(), Table2.getInstance());
     }
 
     /**
@@ -46,7 +46,7 @@ public class DatabaseManager {
 
     static {
         sUriMatcher.addURI(AUTHORITY, Table1.getInstance().getName(), BLOG_TABLE);
-        sUriMatcher.addURI(AUTHORITY, PublishDateTable.getInstance().getName(), PUBLISH_DATE_TABLE);
+        sUriMatcher.addURI(AUTHORITY, Table2.getInstance().getName(), PUBLISH_DATE_TABLE);
     }
 
     public static String matchUri(Uri uri) {
@@ -54,7 +54,7 @@ public class DatabaseManager {
             case BLOG_TABLE:
                 return Table1.getInstance().getName();
             case PUBLISH_DATE_TABLE:
-                return PublishDateTable.getInstance().getName();
+                return Table2.getInstance().getName();
             default:
                 throw new IllegalArgumentException("Unknown URI " + uri);
         }

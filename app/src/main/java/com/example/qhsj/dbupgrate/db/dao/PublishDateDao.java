@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 
-import com.example.qhsj.dbupgrate.db.table.PublishDateTable;
+import com.example.qhsj.dbupgrate.db.table.Table2;
 import com.example.qhsj.dbupgrate.db.utils.DatabaseManager;
 import com.example.qhsj.dbupgrate.utils.LogUtils;
 
@@ -18,16 +18,16 @@ import java.util.List;
 public class PublishDateDao {
     private static final String TAG = PublishDateDao.class.getSimpleName();
 
-    private static final String URI = "content://" + DatabaseManager.AUTHORITY + PublishDateTable.getInstance().getName();
+    private static final String URI = "content://" + DatabaseManager.AUTHORITY + Table2.getInstance().getName();
 
 
     public static final List<String> queryAll(final Context context) {
         Uri uri = Uri.parse(URI);
         String[] projection = new String[]{
-            PublishDateTable.DATE
+            Table2.DATE
         };
         Cursor c = context.getContentResolver().query(uri, projection,
-                null, null, PublishDateTable.DATE + " DESC");
+                null, null, Table2.DATE + " DESC");
         List<String> result = new ArrayList<>();
         try {
             if (c.moveToFirst()) {
@@ -49,7 +49,7 @@ public class PublishDateDao {
     public static final Uri insert(Context context, String date) {
         Uri uri = Uri.parse(URI);
         ContentValues values = new ContentValues();
-        values.put(PublishDateTable.DATE, date);
+        values.put(Table2.DATE, date);
 
         Uri returnUri = context.getContentResolver().insert(uri, values);
         return returnUri;

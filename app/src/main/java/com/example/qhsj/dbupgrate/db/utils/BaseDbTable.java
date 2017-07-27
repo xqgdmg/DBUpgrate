@@ -20,7 +20,7 @@ import java.util.List;
  */
 public abstract class BaseDbTable implements BaseColumns {
 
-    private static final String TAG = BaseDbTable.class.getSimpleName();
+    private static final String TAG = "chris";
 
     /**
      * 数据库表名
