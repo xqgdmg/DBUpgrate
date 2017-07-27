@@ -141,7 +141,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        LogUtils.e(TAG, "onCreate()...重新安装不升级版本号也会执行，如果改了db的名字，旧的db文件是没有被删除的");
+        LogUtils.e(TAG, "onCreate()...相同版本号不卸载安装不执行，卸载重新安装不升级版本号也会执行，如果改了db的名字，旧的db文件是没有被删除的");
         Collection<BaseDbTable> tables = DatabaseManager.mAllTables.values();
         Iterator<BaseDbTable> iterator = tables.iterator();
         try {

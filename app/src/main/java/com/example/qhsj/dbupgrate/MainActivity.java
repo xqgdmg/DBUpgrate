@@ -38,12 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
                 MyDatabaseHelper helper = MyDatabaseHelper.getInstance(getApplicationContext());
 
-                // 这里有个很坑爹的地方，不往里面添加至，直接看不到 database 的文件夹，什么都没有！！！
+                // 这里有个很坑爹的地方，不往里面添加值，直接看不到 database 的文件夹，什么都没有！！！
                 // MyDatabaseHelper 也不执行，草泥马。。。。
                 helper.getWritableDatabase().insert(Table1.TABLE_NAME,null,values);
                 values.clear();
 
-                values.put("date", "1970.01.01");
+                values.put("date", "19700101");
                 helper.getWritableDatabase().insert(Table2.TABLE_NAME,null,values);
 
             }

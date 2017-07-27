@@ -1,11 +1,10 @@
-#database
 数据库包，该包封装了对数据库的增删改查操作
 外部需要操作数据库时，只能通过ContentProvider的方式进行操作，使用ContentProvider是为了统一操作接口
 
 ##基本类说明
 该包的基本类包括：
 > BaseDbTable
-> DatabaseHelper
+> MyDatabaseHelper
 > DatabaseManager
 > GanHuoContentProvider
 
@@ -15,7 +14,7 @@
 增加新表，在旧表中新增或删除列属性，更多信息可以查看类注释。该类权限为包权限，对外部隐藏升级的实现。需要注意，以后新增的数据库表
 都必须继承该类。
 
-**DatabaseHelper** 该类继承 SQLiteOpenHelper 类，使用 SQLite 数据的实现方式，就不过多介绍了。
+**MyDatabaseHelper** 该类继承 SQLiteOpenHelper 类，使用 SQLite 数据的实现方式，就不过多介绍了。
 
 **DatabaseManager** 该类管理着数据库中的所有表，以及管理着所有表的URI映射（ContentProvider需要用到），每次新增表
 都需要对该类进行更新维护。
