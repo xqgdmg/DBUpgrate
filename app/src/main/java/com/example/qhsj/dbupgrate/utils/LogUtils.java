@@ -16,7 +16,8 @@ import java.util.Formatter;
 public class LogUtils {
     private static final String TAG = LogUtils.class.getSimpleName();
 
-    private static final boolean debug = BuildConfig.DEBUG;
+//    private static final boolean debug = BuildConfig.DEBUG;
+    private static final boolean debug = true;
 
     private static final int V = 0x01;
     private static final int D = 0x02;
