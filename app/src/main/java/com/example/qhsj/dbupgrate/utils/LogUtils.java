@@ -1,8 +1,8 @@
-package com.example.qhsj.myapplication.utils;
+package com.example.qhsj.dbupgrate.utils;
 
 import android.util.Log;
 
-import com.example.qhsj.myapplication.BuildConfig;
+import com.example.qhsj.dbupgrate.BuildConfig;
 
 import java.util.Formatter;
 

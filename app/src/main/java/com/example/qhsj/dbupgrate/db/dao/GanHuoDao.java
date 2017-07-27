@@ -1,14 +1,14 @@
-package com.example.qhsj.myapplication.db.dao;
+package com.example.qhsj.dbupgrate.db.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 
-import com.example.qhsj.myapplication.db.bean.GanHuoEntity;
-import com.example.qhsj.myapplication.db.table.Table1;
-import com.example.qhsj.myapplication.db.utils.DatabaseManager;
-import com.example.qhsj.myapplication.utils.LogUtils;
+import com.example.qhsj.dbupgrate.db.bean.GanHuoEntity;
+import com.example.qhsj.dbupgrate.db.table.Table1;
+import com.example.qhsj.dbupgrate.db.utils.DatabaseManager;
+import com.example.qhsj.dbupgrate.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;

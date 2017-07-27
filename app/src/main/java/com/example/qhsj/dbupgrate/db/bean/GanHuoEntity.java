@@ -1,4 +1,4 @@
-package com.example.qhsj.myapplication.db.bean;
+package com.example.qhsj.dbupgrate.db.bean;
 
 import android.support.annotation.NonNull;
 import android.text.TextUtils;

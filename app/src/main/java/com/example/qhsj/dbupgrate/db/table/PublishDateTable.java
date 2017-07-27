@@ -1,8 +1,8 @@
-package com.example.qhsj.myapplication.db.table;
+package com.example.qhsj.dbupgrate.db.table;
 
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.qhsj.myapplication.db.utils.BaseDbTable;
+import com.example.qhsj.dbupgrate.db.utils.BaseDbTable;
 
 /**
  * Created by dasu on 2017/4/12.

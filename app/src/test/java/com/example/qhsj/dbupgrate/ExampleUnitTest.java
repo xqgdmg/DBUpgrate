@@ -1,4 +1,4 @@
-package com.example.qhsj.myapplication;
+package com.example.qhsj.dbupgrate;
 
 import org.junit.Test;
 

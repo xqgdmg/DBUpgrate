@@ -1,4 +1,4 @@
-package com.example.qhsj.myapplication;
+package com.example.qhsj.dbupgrate;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,10 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.qhsj.myapplication.db.table.PublishDateTable;
-import com.example.qhsj.myapplication.db.table.Table1;
-import com.example.qhsj.myapplication.db.utils.DatabaseManager;
-import com.example.qhsj.myapplication.db.utils.MyDatabaseHelper;
+import com.example.qhsj.dbupgrate.db.utils.MyDatabaseHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                MyDatabaseHelper.getInstance(getApplicationContext());
                 Log.e("chris","onClick");
             }
         });

@@ -1,11 +1,12 @@
-package com.example.qhsj.myapplication.db.utils;
+package com.example.qhsj.dbupgrate.db.utils;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
-import com.example.qhsj.myapplication.utils.LogUtils;
+import com.example.qhsj.dbupgrate.utils.LogUtils;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -27,7 +28,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     private static MyDatabaseHelper mDbHelper;
 
-    public MyDatabaseHelper(Context context) {
+    private MyDatabaseHelper(Context context) {
         super(context, DatabaseManager.DB_NAME, null, DatabaseManager.DB_VERSION);
     }
 
@@ -39,23 +40,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return mDbHelper;
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        LogUtils.e(TAG, "onCreate()...");
-        Collection<BaseDbTable> tables = DatabaseManager.mAllTables.values();
-        Iterator<BaseDbTable> iterator = tables.iterator();
-        try {
-            db.beginTransaction();// 开始事务
-            while (iterator.hasNext()) {
-                iterator.next().onCreate(db);
-            }
-            db.setTransactionSuccessful();// 标志事务成功
-        } catch (Throwable e) {
-            throw new RuntimeException("DB creation failed: " + e.getMessage());
-        } finally {
-            db.endTransaction();// 停止事务
-        }
-    }
+
 
     /**
      * 支持下列的数据库升级操作:
@@ -148,6 +133,27 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return mReadableDB;
+    }
+
+    /**
+     * 只会在第一次执行，db创建之后再也不执行
+     */
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        LogUtils.e(TAG, "onCreate()...");
+        Collection<BaseDbTable> tables = DatabaseManager.mAllTables.values();
+        Iterator<BaseDbTable> iterator = tables.iterator();
+        try {
+            db.beginTransaction();// 开始事务
+            while (iterator.hasNext()) {
+                iterator.next().onCreate(db);
+            }
+            db.setTransactionSuccessful();// 标志事务成功
+        } catch (Throwable e) {
+            throw new RuntimeException("DB creation failed: " + e.getMessage());
+        } finally {
+            db.endTransaction();// 停止事务
+        }
     }
 
 

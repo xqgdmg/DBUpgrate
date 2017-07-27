@@ -1,10 +1,10 @@
-package com.example.qhsj.myapplication.db.utils;
+package com.example.qhsj.dbupgrate.db.utils;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 import android.text.TextUtils;
-import com.example.qhsj.myapplication.utils.LogUtils;
+import com.example.qhsj.dbupgrate.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;

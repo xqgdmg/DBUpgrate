@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.qhsj.myapplication">
+    package="com.example.qhsj.dbupgrate">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.qhsj.dbupgrate.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,8 +21,8 @@
         <!-- 注册内容提供者
             com.example.qhsj.myapplication.authority 写错会 install apk error -->
         <provider
-            android:authorities="com.example.qhsj.myapplication.authority"
-            android:name=".provider.GanHuoContentProvider"
+            android:authorities="com.example.qhsj.dbupgrate.authority"
+            android:name="com.example.qhsj.dbupgrate.provider.GanHuoContentProvider"
             android:exported="false"/>
 
     </application>

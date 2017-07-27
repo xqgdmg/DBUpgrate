@@ -1,10 +1,10 @@
-package com.example.qhsj.myapplication.db.utils;
+package com.example.qhsj.dbupgrate.db.utils;
 
 import android.content.UriMatcher;
 import android.net.Uri;
 
-import com.example.qhsj.myapplication.db.table.Table1;
-import com.example.qhsj.myapplication.db.table.PublishDateTable;
+import com.example.qhsj.dbupgrate.db.table.Table1;
+import com.example.qhsj.dbupgrate.db.table.PublishDateTable;
 
 import java.util.LinkedHashMap;
 

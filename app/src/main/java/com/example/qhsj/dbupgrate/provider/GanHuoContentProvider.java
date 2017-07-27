@@ -1,4 +1,4 @@
-package com.example.qhsj.myapplication.provider;
+package com.example.qhsj.dbupgrate.provider;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;
@@ -10,9 +10,9 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.example.qhsj.myapplication.db.utils.DatabaseManager;
-import com.example.qhsj.myapplication.db.utils.MyDatabaseHelper;
-import com.example.qhsj.myapplication.utils.LogUtils;
+import com.example.qhsj.dbupgrate.db.utils.DatabaseManager;
+import com.example.qhsj.dbupgrate.db.utils.MyDatabaseHelper;
+import com.example.qhsj.dbupgrate.utils.LogUtils;
 
 /**
  * 记得在清单文件注册

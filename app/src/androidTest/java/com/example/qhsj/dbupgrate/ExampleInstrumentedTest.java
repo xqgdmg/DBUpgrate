@@ -1,4 +1,4 @@
-package com.example.qhsj.myapplication;
+package com.example.qhsj.dbupgrate;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
