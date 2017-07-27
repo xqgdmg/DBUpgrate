@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("chris","onClick");
 
                 ContentValues values = new ContentValues();
-                values.put("description", "测试");
+                values.put("description", "description");// 写中文会乱码？？
 
                 MyDatabaseHelper helper = MyDatabaseHelper.getInstance(getApplicationContext());
 
