@@ -16,6 +16,8 @@ import com.example.qhsj.dbupgrate.utils.LogUtils;
 
 /**
  * 记得在清单文件注册
+ *
+ * 增删改查
  */
 public class GanHuoContentProvider extends ContentProvider {
 
