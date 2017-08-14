@@ -42,17 +42,17 @@ public class GanHuoDao {
         };
         String where = Table1._ID + " = '" + id + "'";
         Cursor c = context.getContentResolver().query(uri, projection, where, null, null);
-        GanHuoEntity result = null;
+        GanHuoEntity entity = null;
         try {
             if (c.moveToFirst()) {
-                result = new GanHuoEntity();
-                result.setDesc(c.getString(0));
-                result.setPublishedAt(new Date(c.getLong(1)));
-                result.setType(c.getString(2));
-                result.setUrl(c.getString(3));
-                result.setImages(Arrays.asList(c.getString(4).split(",")));
-                result.setWho(c.getString(5));
-                result.set_id(c.getString(6));
+                entity = new GanHuoEntity();
+                entity.setDesc(c.getString(0));
+                entity.setPublishedAt(new Date(c.getLong(1)));
+                entity.setType(c.getString(2));
+                entity.setUrl(c.getString(3));
+                entity.setImages(Arrays.asList(c.getString(4).split(",")));
+                entity.setWho(c.getString(5));
+                entity.set_id(c.getString(6));
             }
         } finally {
             if (c != null) {
@@ -60,7 +60,7 @@ public class GanHuoDao {
                 c = null;
             }
         }
-        return result;
+        return entity;
     }
 
     /**
@@ -110,7 +110,7 @@ public class GanHuoDao {
      */
     public static Uri insert(Context context, GanHuoEntity blog) {
         Uri uri = Uri.parse(URI);
-        //插入前先把旧数据删掉，如果有的话
+        // 插入前先把旧数据删掉，如果有的话
         if (queryById(context, blog.get_id()) != null) {
             String where = Table1._ID + " = " + blog.get_id();
             context.getContentResolver().delete(uri, where, null);
