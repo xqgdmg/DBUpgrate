@@ -16,13 +16,19 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by dasu on 2017/4/12.
+ * 建议每张表对应一个 Dao 类，Dao 类主要封装对该表的基本操作，外部只能通过 Dao 类操作数据库对象，对数据库的内部实现并不清楚
+ *
+ * 内容提供者
  */
 public class GanHuoDao {
+
     private static final String TAG = GanHuoDao.class.getSimpleName();
 
     private static final String URI = "content://" + DatabaseManager.AUTHORITY + Table1.getInstance().getName();
 
+    /**
+     *  通过id查询
+     */
     public static final GanHuoEntity queryById(final Context context, String id) {
         Uri uri = Uri.parse(URI);
         String[] projection = new String[]{
@@ -57,6 +63,9 @@ public class GanHuoDao {
         return result;
     }
 
+    /**
+     * 查询所有
+     */
     public static final List<GanHuoEntity> queryAll(final Context context) {
         Uri uri = Uri.parse(URI);
         String[] projection = new String[]{
@@ -69,23 +78,22 @@ public class GanHuoDao {
                 Table1._ID
 
         };
-        Cursor c = context.getContentResolver().query(uri, projection,
-                null, null, Table1.PUBLISHEDAT + " DESC");
+        Cursor c = context.getContentResolver().query(uri, projection,null, null, Table1.PUBLISHEDAT + " DESC");
         List<GanHuoEntity> result = new ArrayList<>();
         try {
             if (c.moveToFirst()) {
                 LogUtils.d(TAG, "GanHuoDao-->queryAll(): " + c.getCount());
                 for (int i = 0; i < c.getCount(); i++) {
                     c.moveToPosition(i);
-                    GanHuoEntity blog = new GanHuoEntity();
-                    blog.setDesc(c.getString(0));
-                    blog.setPublishedAt(new Date(c.getLong(1)));
-                    blog.setType(c.getString(2));
-                    blog.setUrl(c.getString(3));
-                    blog.setImages(Arrays.asList(c.getString(4).split(",")));
-                    blog.setWho(c.getString(5));
-                    blog.set_id(c.getString(6));
-                    result.add(blog);
+                    GanHuoEntity ganHuoEntity = new GanHuoEntity();
+                    ganHuoEntity.setDesc(c.getString(0));
+                    ganHuoEntity.setPublishedAt(new Date(c.getLong(1)));
+                    ganHuoEntity.setType(c.getString(2));
+                    ganHuoEntity.setUrl(c.getString(3));
+                    ganHuoEntity.setImages(Arrays.asList(c.getString(4).split(",")));
+                    ganHuoEntity.setWho(c.getString(5));
+                    ganHuoEntity.set_id(c.getString(6));
+                    result.add(ganHuoEntity);
                 }
             }
         } finally {
@@ -97,7 +105,10 @@ public class GanHuoDao {
         return result;
     }
 
-    public static final Uri insert(Context context, GanHuoEntity blog) {
+    /**
+     * 添加
+     */
+    public static Uri insert(Context context, GanHuoEntity blog) {
         Uri uri = Uri.parse(URI);
         //插入前先把旧数据删掉，如果有的话
         if (queryById(context, blog.get_id()) != null) {
@@ -120,7 +131,10 @@ public class GanHuoDao {
         return returnUri;
     }
 
-    public static final int deleteAll(Context context) {
+    /**
+     * 删除所有
+     */
+    public static int deleteAll(Context context) {
         Uri uri = Uri.parse(URI);
         int result = context.getContentResolver().delete(uri, null, null);
         return result;

@@ -5,18 +5,20 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.qhsj.dbupgrate.db.utils.BaseDbTable;
 
 /**
- * Created by dasu on 2017/4/12.
- * <p>
  * 存储Gank.io上的干货，干货包括github开源项目，技术文章，视频，图片等
+ *
+ * 创建表，获取表的实例，获取表名
  */
 public class Table1 extends BaseDbTable {
     public static final String TABLE_NAME = "table1";
 
+    // 父类方法
     @Override
     public String getName() {
         return TABLE_NAME;
     }
 
+    // 父类方法
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_TABLE);

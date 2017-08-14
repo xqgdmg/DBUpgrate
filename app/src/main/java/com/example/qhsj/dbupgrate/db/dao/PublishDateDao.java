@@ -13,9 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by dasu on 2017/4/12.
+ * 建议每张表对应一个 Dao 类，Dao 类主要封装对该表的基本操作，外部只能通过 Dao 类操作数据库对象，对数据库的内部实现并不清楚
  */
 public class PublishDateDao {
+
     private static final String TAG = PublishDateDao.class.getSimpleName();
 
     private static final String URI = "content://" + DatabaseManager.AUTHORITY + Table2.getInstance().getName();
@@ -26,8 +27,7 @@ public class PublishDateDao {
         String[] projection = new String[]{
             Table2.DATE
         };
-        Cursor c = context.getContentResolver().query(uri, projection,
-                null, null, Table2.DATE + " DESC");
+        Cursor c = context.getContentResolver().query(uri, projection,null, null, Table2.DATE + " DESC");
         List<String> result = new ArrayList<>();
         try {
             if (c.moveToFirst()) {
